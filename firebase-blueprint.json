@@ -1,0 +1,55 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "nickname": { "type": "string" },
+        "avatar": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["nickname", "email", "createdAt"]
+    },
+    "Translation": {
+      "title": "Translation",
+      "description": "A single translation record",
+      "type": "object",
+      "properties": {
+        "sourceText": { "type": "string" },
+        "translatedText": { "type": "string" },
+        "langName": { "type": "string" },
+        "langFlag": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["sourceText", "translatedText", "langName", "langFlag", "timestamp"]
+    },
+    "Avatar": {
+      "title": "Avatar",
+      "description": "A generated AI avatar record",
+      "type": "object",
+      "properties": {
+        "url": { "type": "string" },
+        "prompt": { "type": "string" },
+        "style": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["url", "prompt", "style", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile document"
+    },
+    "/users/{userId}/translations/{translationId}": {
+      "schema": "Translation",
+      "description": "User's translation history"
+    },
+    "/users/{userId}/avatars/{avatarId}": {
+      "schema": "Avatar",
+      "description": "User's generated avatar history"
+    }
+  }
+}

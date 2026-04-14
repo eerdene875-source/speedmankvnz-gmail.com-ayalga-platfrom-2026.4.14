@@ -1,0 +1,7 @@
+{
+  "name": "Remix: Ayalga AI",
+  "description": "A modern AI-powered platform for digital nomads, blending Mongolian heritage with cutting-edge technology.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
